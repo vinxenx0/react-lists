@@ -95,6 +95,20 @@ const EditList = () => {
       <input type="text" value={image} onChange={(e) => setImage(e.target.value)} className="form-control mb-2" placeholder="Image URL" />
       <img src={`/images/${image}`} className="img-thumbnail mb-3" alt="List" width="200" />
 
+      <select value={status} onChange={(e) => setStatus(e.target.value)} className="form-select mb-2">
+        <option value="draft">Draft</option>
+        <option value="published">Published</option>
+      </select>
+      <select value={permissions} onChange={(e) => setPermissions(e.target.value)} className="form-select mb-2">
+        <option value="shared">Shared</option>
+        <option value="private">Only Me</option>
+      </select>
+
+      <select value={visibility} onChange={(e) => setVisibility(e.target.value)} className="form-select mb-2">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+      </select>
+
       <h4>Manage Items</h4>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="items-list">
