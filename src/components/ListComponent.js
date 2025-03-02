@@ -3,6 +3,8 @@ import { AuthContext } from "../contexts/AuthContext";
 import { FlashMessageContext } from "../contexts/FlashMessageContext";
 import { Link } from "react-router-dom";
 
+
+
 const ListComponent = ({ list, onDelete, onLike, onDislike, onFollow, page }) => {
   const { user } = useContext(AuthContext);
   const { showMessage } = useContext(FlashMessageContext);
@@ -45,7 +47,9 @@ const ListComponent = ({ list, onDelete, onLike, onDislike, onFollow, page }) =>
 
       <img src={`/images/${list.image}`} className="card-img-top" alt="List Thumbnail" />
       <div className="card-body">
-        <h5 className="card-title">{list.title}</h5>
+        <h5 className="card-title">
+          <Link to={`/view/${list.id}`} className="text-decoration-none">{list.title}</Link>
+        </h5>
         <p className="text-muted small">
           <i className={`bi ${list.status === "published" ? "bi-check-circle text-success" : "bi-pencil text-warning"} me-2`} title="Estado"></i>
           <i className={`bi ${list.permissions === "shared" ? "bi-people text-info" : "bi-person-lock text-danger"} me-2`} title="Permisos"></i>

@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import BaseLayout from "./layouts/BaseLayout";
 import EditList from "./pages/EditList"; 
+import ViewList from "./pages/ViewList";
 import Favorites from "./pages/Favorites"; 
 
 
@@ -40,6 +41,8 @@ function App() {
             
             {/* Listas */}
             <Route path="/edit/:id" element={<PrivateRoute><BaseLayout><EditList /></BaseLayout></PrivateRoute>} />
+            <Route path="/view/:id" element={<BaseLayout><ViewList /></BaseLayout>} />
+
           </Routes>
         </Router>
       </FlashMessageProvider>

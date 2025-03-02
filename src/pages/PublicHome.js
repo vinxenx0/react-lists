@@ -7,16 +7,31 @@ import { AuthContext } from "../contexts/AuthContext";
 const PublicHome = () => {
   const { user } = useContext(AuthContext);
   const [lists, setLists] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchLists = () => {
-      const publicLists = ListController.getLatestPublicLists(); // ✅ Se usa `getLatestPublicLists`
-      console.log("✅ DEBUG: Public Lists Loaded:", publicLists);
+      setLoading(true);
+      const publicLists = ListController.getLatestPublicLists(page * 5);
       setLists(publicLists);
+      setLoading(false);
     };
 
     fetchLists();
+  }, [page]);
+
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+      setPage(prevPage => prevPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   const handleLike = (listId) => {
     if (!user) return;
@@ -64,11 +79,13 @@ const PublicHome = () => {
               onLike={handleLike}
               onDislike={handleDislike}
               onFollow={handleFollow}
-              page="public"
+              page="public" // ✅ Indicamos que es PublicHome
             />
           ))
         )}
       </div>
+
+      {loading && <p className="text-center text-secondary">Loading more lists...</p>}
     </div>
   );
 };

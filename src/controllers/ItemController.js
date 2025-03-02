@@ -29,4 +29,6 @@ class ItemController {
 
 }
 
-export default new ItemController();
+
+const itemControllerInstance = new ItemController();
+export default itemControllerInstance;
