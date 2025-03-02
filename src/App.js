@@ -43,6 +43,7 @@ function App() {
             <Route path="/edit/:id" element={<PrivateRoute><BaseLayout><EditList /></BaseLayout></PrivateRoute>} />
             <Route path="/view/:id" element={<BaseLayout><ViewList /></BaseLayout>} />
 
+
           </Routes>
         </Router>
       </FlashMessageProvider>

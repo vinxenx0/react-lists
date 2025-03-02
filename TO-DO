@@ -2,3 +2,13 @@
 # drag and drop no funciona
 # no muestra descripcion
 # finalizar implantacion archivos uploads
+# dos entornos 
+# ssl
+
+## COMENTARIOS
+# like y dislike en tiempo real
+# no hay consistencia para guardar ?¿
+# en view list debe mostrar TODA la info
+# en editlist debe dejar modificar comentarios tb
+# no lleva el counter de los comentarios en las tarjetas
+

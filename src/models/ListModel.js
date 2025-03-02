@@ -1,7 +1,7 @@
 export default class ListModel {
   constructor(id, title, items = [], ownerId, likes = [], dislikes = [], followers = [],
               category = "", subcategory = "", tags = [], image = "default_thumbnail.png",
-              createdAt = new Date().toISOString(), visibility = "public", status = "draft") {
+              createdAt = new Date().toISOString(), visibility = "public", status = "draft", comments = []) {
     this.id = id;
     this.title = title;
     this.items = items;
@@ -15,7 +15,8 @@ export default class ListModel {
     this.image = image;
     this.createdAt = createdAt;
     this.visibility = visibility || "public"; 
-    this.status = status || "draft"; 
+    this.status = status || "draft";
+    this.comments = comments;
   }
 
   toggleLike(userId) {
