@@ -18,9 +18,9 @@ const Navbar = () => {
         </Link>
 
         {/* Botón del menú en móvil */}
-        <button 
-          className="navbar-toggler" 
-          type="button" 
+        <button
+          className="navbar-toggler"
+          type="button"
           onClick={toggleNavbar} // ✅ Manejo manual del toggle
         >
           <span className="navbar-toggler-icon"></span>
@@ -29,19 +29,20 @@ const Navbar = () => {
         {/* Menú de navegación con estado de apertura */}
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
+
             <li className="nav-item">
               <Link className="nav-link" to="/" onClick={() => setIsOpen(false)}>
                 <i className="bi bi-search"></i> Explorar
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/activity" onClick={() => setIsOpen(false)}>
-                <i className="bi bi-activity"></i> Actividad
-              </Link>
-            </li>
 
             {user ? (
               <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/activity" onClick={() => setIsOpen(false)}>
+                    <i className="bi bi-activity"></i> Actividad
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/favorites" onClick={() => setIsOpen(false)}>
                     <i className="bi bi-heart"></i> Favoritos
@@ -70,11 +71,11 @@ const Navbar = () => {
                     <i className="bi bi-key"></i> Inicio de Sesión
                   </Link>
                 </li>
-                <li className="nav-item">
+                 {/* <li className="nav-item">
                   <Link className="nav-link" to="/register" onClick={() => setIsOpen(false)}>
                     <i className="bi bi-person-plus"></i> Registro
                   </Link>
-                </li>
+                </li> */ }
               </>
             )}
           </ul>

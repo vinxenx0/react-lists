@@ -4,6 +4,7 @@
 # finalizar implantacion archivos uploads
 # dos entornos 
 # ssl
+# actividad si estas login
 
 ## COMENTARIOS
 # like y dislike en tiempo real
@@ -11,4 +12,10 @@
 # en view list debe mostrar TODA la info
 # en editlist debe dejar modificar comentarios tb
 # no lleva el counter de los comentarios en las tarjetas
+
+# improtante: parece q solo graba los comentarios del autor de la lista
+parece q si va es un problema del loding que hace de cargar dadtos
+
+---> en algun momento se pierden los comentarios
+
 
